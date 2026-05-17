@@ -72,7 +72,7 @@ async function initSession() {
 function AdminGuard({ children }) {
   const token = sessionStorage.getItem('mono_admin_token')
   const wallet = sessionStorage.getItem('mono_admin_wallet')
-  if (token !== 'verified' || !wallet) return <Navigate to="/admin" replace />
+  if (token !== 'verified' || !wallet) return <Navigate to="/x7k2-panel" replace />
   return children
 }
 
@@ -102,8 +102,8 @@ export default function App() {
         <Route path="/careers"   element={<PublicLayout><Suspense fallback={null}><StaticPage page="careers" /></Suspense></PublicLayout>} />
 
         {/* Admin — completely isolated, no public layout */}
-        <Route path="/admin"       element={<AdminAuthPage />} />
-        <Route path="/admin/panel" element={<AdminGuard><AdminPanel /></AdminGuard>} />
+        <Route path="/x7k2-panel"       element={<AdminAuthPage />} />
+        <Route path="/x7k2-panel/dashboard" element={<AdminGuard><AdminPanel /></AdminGuard>} />
 
         {/* Catch-all → home */}
         <Route path="*" element={<Navigate to="/" replace />} />
