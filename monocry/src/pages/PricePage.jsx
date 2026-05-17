@@ -101,11 +101,7 @@ export default function PricePage() {
                     </div>
                   </td>
                   <td className="px-4 py-3 text-right font-mono text-white">
-                    <div className="flex items-center justify-end gap-1.5">
-                      {/* Icon + price side by side */}
-                      <img src={coin.image} alt="" width="14" height="14" className="rounded-full opacity-60" loading="lazy" />
-                      {fmt(coin.current_price)}
-                    </div>
+                    {fmt(coin.current_price)}
                   </td>
                   <td className={`px-4 py-3 text-right font-mono font-semibold ${isUp ? 'text-green-400' : 'text-red-400'}`}>
                     {change != null ? (isUp ? '+' : '') + change.toFixed(2) + '%' : 'N/A'}
