@@ -1,1 +1,6 @@
+# Block the old /admin path — return 404 to avoid tipping off scanners
+/admin 404
+/admin/* 404
+
+# SPA fallback — must come last
 /* /index.html 200
