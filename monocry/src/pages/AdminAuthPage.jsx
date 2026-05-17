@@ -22,7 +22,7 @@ export default function AdminAuthPage() {
     const token = sessionStorage.getItem('mono_admin_token')
     const wallet = sessionStorage.getItem('mono_admin_wallet')
     if (token === 'verified' && wallet === ADMIN_WALLET) {
-      navigate('/admin/panel', { replace: true })
+      navigate('/x7k2-panel/dashboard', { replace: true })
       return
     }
     checkBan()
@@ -158,12 +158,10 @@ export default function AdminAuthPage() {
       })
 
       // Enter panel
-      setTimeout(() => navigate('/admin/panel', { replace: true }), 300)
+      setTimeout(() => navigate('/x7k2-panel/dashboard', { replace: true }), 300)
 
     } catch (e) {
-      console.error('Admin auth error:', e)
-      const msg = e?.message || 'Connection failed.'
-      // Never expose raw errors to screen
+      // Auth error — sanitized, never expose raw error
       setError('Authentication failed. Check your wallet and try again.')
       setPhase('idle')
     }
