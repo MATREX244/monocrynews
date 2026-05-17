@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>Monocry</ShortName>
+  <Description>Search Monocry — Crypto News & Markets</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="192" height="192" type="image/png">https://monocrynews.pages.dev/logo-192.png</Image>
+  <Url type="text/html" template="https://monocrynews.pages.dev/?q={searchTerms}"/>
+  <Url type="application/opensearchdescription+xml" rel="self" template="https://monocrynews.pages.dev/opensearch.xml"/>
+</OpenSearchDescription>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Security headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
+    <!-- CSP: adjust hashes if you add inline scripts -->
+    <meta http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob:; connect-src 'self' https://plmkbqfsydhbijijapgo.supabase.co https://api.coingecko.com https://acceptable.a-ads.com wss://plmkbqfsydhbijijapgo.supabase.co; frame-src https://acceptable.a-ads.com; font-src 'self' data:;" />
+    <!-- PWA / Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="/logo-192.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/logo-192.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#0079C1" />
+    <!-- SEO -->
+    <meta name="description" content="Monocry — Latest cryptocurrency news, market analysis, price predictions and deep dives." />
+    <meta property="og:site_name" content="Monocry" />
+    <meta property="og:image" content="/logo-512.png" />
+    <!-- Prefetch Supabase & CoinGecko -->
+    <link rel="preconnect" href="https://plmkbqfsydhbijijapgo.supabase.co" />
+    <link rel="dns-prefetch" href="https://api.coingecko.com" />
+    <title>Monocry — Crypto News & Markets</title>
+  </head>
+  <body class="bg-mono-bg text-mono-text">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

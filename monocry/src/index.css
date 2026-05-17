@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --mono-bg: #111111;
+  --mono-surface: #1a1a1a;
+  --mono-card: #1e1e1e;
+  --mono-border: #2a2a2a;
+  --mono-accent: #0079C1;
+  --mono-text: #e8e8e8;
+  --mono-muted: #888888;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--mono-bg);
+  color: var(--mono-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--mono-bg); }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--mono-accent); }
+
+/* ─── Category badge — FIXED: fit-content, not 100% ─── */
+.category-badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  max-width: fit-content;
+  white-space: nowrap;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(239, 68, 68, 0.18);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+.category-badge.news { background: rgba(239, 68, 68, 0.18); color: #fca5a5; border-color: rgba(239, 68, 68, 0.3); }
+.category-badge.opinion { background: rgba(168, 85, 247, 0.18); color: #c4b5fd; border-color: rgba(168, 85, 247, 0.3); }
+.category-badge.markets { background: rgba(0, 121, 193, 0.18); color: #7dd3fc; border-color: rgba(0, 121, 193, 0.3); }
+.category-badge.learn { background: rgba(34, 197, 94, 0.18); color: #86efac; border-color: rgba(34, 197, 94, 0.3); }
+.category-badge.interviews { background: rgba(251, 146, 60, 0.18); color: #fdba74; border-color: rgba(251, 146, 60, 0.3); }
+.category-badge.partner { background: rgba(234, 179, 8, 0.18); color: #fde047; border-color: rgba(234, 179, 8, 0.3); }
+.category-badge.tech { background: rgba(6, 182, 212, 0.18); color: #67e8f9; border-color: rgba(6, 182, 212, 0.3); }
+.category-badge.follow-up { background: rgba(99, 102, 241, 0.18); color: #a5b4fc; border-color: rgba(99, 102, 241, 0.3); }
+
+/* ─── Coin highlights in articles ─── */
+.coin-mention { text-decoration: none; }
+.coin-mark {
+  background: rgba(0, 121, 193, 0.25);
+  color: #7dd3fc;
+  border-radius: 3px;
+  padding: 0 3px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.coin-mark:hover { background: rgba(0, 121, 193, 0.5); }
+
+/* ─── Article card ─── */
+.article-card {
+  background: var(--mono-card);
+  border: 1px solid var(--mono-border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.15s;
+}
+.article-card:hover {
+  border-color: var(--mono-accent);
+  transform: translateY(-2px);
+}
+
+/* ─── Share buttons ─── */
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+  border: none;
+  text-decoration: none;
+  color: white;
+}
+.share-btn:hover { opacity: 0.85; transform: scale(1.03); }
+.share-btn:active { transform: scale(0.97); }
+.share-btn.twitter { background: #1da1f2; }
+.share-btn.telegram { background: #0088cc; }
+.share-btn.facebook { background: #1877f2; }
+.share-btn.whatsapp { background: #25d366; }
+.share-btn.reddit { background: #ff4500; }
+.share-btn.copy { background: #2a2a2a; border: 1px solid #3a3a3a; }
+.share-btn.email { background: #4a4a4a; }
+
+/* ─── Prediction bars ─── */
+.pred-bar {
+  height: 6px;
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+/* ─── Admin panel ─── */
+.admin-sidebar {
+  width: 220px;
+  min-height: 100vh;
+  background: #0e0e0e;
+  border-right: 1px solid var(--mono-border);
+  padding: 20px 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+.admin-content {
+  margin-left: 220px;
+  min-height: 100vh;
+  padding: 32px;
+  background: var(--mono-bg);
+}
+
+/* ─── Cookie consent ─── */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: #1a1a1a;
+  border-top: 1px solid #2a2a2a;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ─── Modal overlay ─── */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.modal-box {
+  background: var(--mono-surface);
+  border: 1px solid var(--mono-border);
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 480px;
+  width: 100%;
+  animation: popIn 0.2s ease;
+}
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ─── Loading spinner ─── */
+.spinner {
+  width: 36px; height: 36px;
+  border: 3px solid #2a2a2a;
+  border-top-color: var(--mono-accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ─── Price ticker animation ─── */
+@keyframes tickerSlide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: tickerSlide 30s linear infinite;
+}
+.ticker-track:hover { animation-play-state: paused; }
+
+/* ─── Google prefetch button ─── */
+.gpf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--mono-accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.gpf-btn:hover { background: #0066a8; }
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .admin-sidebar { display: none; }
+  .admin-content { margin-left: 0; padding: 16px; }
+}
