@@ -22,8 +22,8 @@ export default function AdminPanel() {
   useEffect(() => {
     const token = sessionStorage.getItem('mono_admin_token')
     const w = sessionStorage.getItem('mono_admin_wallet')
-    if (token !== 'verified' || !w) {
-      navigate('/admin', { replace: true })
+    if (token !== 'verified' || !w || w !== ADMIN_WALLET) {
+      navigate('/x7k2-panel', { replace: true })
       return
     }
     setWallet(w)
@@ -33,7 +33,7 @@ export default function AdminPanel() {
     sessionStorage.removeItem('mono_admin_token')
     sessionStorage.removeItem('mono_admin_wallet')
     sessionStorage.removeItem('mono_admin_nonce')
-    navigate('/admin', { replace: true })
+    navigate('/x7k2-panel', { replace: true })
   }
 
   const panelStyle = {
@@ -504,7 +504,8 @@ function NotificationsTab() {
       p_title: sanitizeText(form.title, 300),
       p_body: sanitizeText(form.body, 2000),
       p_priority: form.priority,
-      p_action_url: sanitizeUrl(form.action_url) || null
+      p_action_url: sanitizeUrl(form.action_url) || null,
+      p_caller_wallet: sessionStorage.getItem('mono_admin_wallet') || ''
     })
     setSending(false)
     if (error) { show(safeErrorMsg(error), 'error'); return }
